@@ -32,7 +32,7 @@ Analisi tattica quantitativa e spaziale condotta sugli open data di evento uffic
 ## 📊 Visualizzazioni & Analisi Tattica
 
 ### 1. Shot Map & Expected Goals ($xG$)
-La dimensione dei cerchi è proporzionale all'$xG$ generato dal singolo tiro; le conclusioni convertite in gol sono evidenziate da marcatori a stella.
+La dimensione dei cerchi è proporzionale all'xG generato dal singolo tiro; le conclusioni convertite in gol sono evidenziate da marcatori a stella.
 
 ![Shot Map xG](shot_map_xg.png)
 
