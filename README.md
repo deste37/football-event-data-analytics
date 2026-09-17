@@ -39,10 +39,11 @@ Analisi quantitativa, tattica e probabilistica sui dati evento ufficiali **Stats
 * **Francia (319 azioni):** Baricentro basso, concentrazione difensiva a protezione degli ultimi 30 metri e linee di recupero posizionate per la transizione immediata.
 
 ---
+---
 
 ## 🎲 Modulo 2: UEFA Euro 2024 Final — Shot-by-Shot Monte Carlo Simulation
 
-> Modellazione stocastica e simulazione probabilistica della finale di **UEFA Euro 2024 (Spagna vs Inghilterra)** tramite **100.000 iterazioni Monte Carlo vettorizzate**, basate sugli micro-dati dei singoli tiri registrati da StatsBomb.
+> Modellazione stocastica e simulazione probabilistica della finale di **UEFA Euro 2024 (Spagna vs Inghilterra)** tramite **100.000 iterazioni Monte Carlo vettorizzate**, basate sui micro-dati dei singoli tiri registrati da StatsBomb.
 
 ### 📌 Business & Analytical Insights
 Nel calcio il punteggio effettivo (2-1) è spesso influenzato dall'alta varianza stocastica connaturata a uno sport a basso punteggio. Questa simulazione disaccoppia la casualità dalla prestazione strutturale:
@@ -52,29 +53,18 @@ Nel calcio il punteggio effettivo (2-1) è spesso influenzato dall'alta varianza
   * **P(Vittoria Spagna):** 64.6%
   * **P(Pareggio):** 22.1%
   * **P(Vittoria Inghilterra):** 13.3%
-* **Expected Points ($xPTS$):** Spagna **2.16** | Inghilterra **0.62**
+* **Expected Points (xPTS):** Spagna **2.16** | Inghilterra **0.62**
 * **Verifica del Risultato Reale (2-1):** Verificatosi con una densità dell'**11.2%**, risultando uno degli esiti a maggior frequenza relativa (dopo 1-0 al 14.2%, 2-0 al 13.9% e 1-1 all'11.4%).
 
 ### 📊 Matrice di Probabilità dei Risultati Esatti
-![Monte Carlo Heatmap](monte_carlo_heatmap_euro24.png)
+![Monte Carlo Heatmap](Unknown.png)
 
 ### 🔬 Metodologia Statistica
-Ogni conclusione $i$ con valore $xG_i \in (0, 1)$ viene modellata come una variabile casuale bernoulliana indipendente:
+Ogni conclusione *i* con valore xG compreso tra 0 e 1 viene modellata come una variabile casuale bernoulliana indipendente:
 
-$$P(\text{Gol}_i) = xG_i$$
-
-Per ogni iterazione $j \in [1, 100000]$, viene campionato un numero casuale uniforme $U \sim \mathcal{U}(0, 1)$. L'evento gol è assegnato se:
-
-$$\mathbb{I}_{\{U < xG_i\}} = 1$$
-
-I punti attesi ($xPTS$) derivano direttamente dalle probabilità empiriche:
-
-$$xPTS = 3 \cdot P(\text{Win}) + 1 \cdot P(\text{Draw})$$
+* **P(Gol) = xG**
+* Per ciascuna delle 100.000 iterazioni viene estratto un valore casuale uniforme `U ~ Uniform(0, 1)`. L'evento gol si verifica se `U < xG`.
+* Il calcolo degli Expected Points (**xPTS**) deriva direttamente dalle frequenze relative stimate:
+  * `xPTS = (3 × P(Win)) + (1 × P(Draw))`
 
 ---
-
-## 🛠️ Stack Tecnologico & Librerie
-* **Linguaggio:** Python
-* **Dati:** StatsBomb Open Data (`statsbombpy`)
-* **Calcolo Vettoriale & Dati:** `numpy`, `pandas`
-* **Visualizzazione Grafica & Pitch Maps:** `matplotlib`, `seaborn`, `mplsoccer`
