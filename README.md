@@ -1,67 +1,80 @@
-# ⚽ World Cup 2022 Final — Tactical Match Report & Spatial Event Analytics
+# ⚽ Football Event Data Analytics & Match Modeling
 
-[![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![StatsBomb](https://img.shields.io/badge/Data-StatsBomb_Open_Data-red)]()
-[![mplsoccer](https://img.shields.io/badge/Visualization-mplsoccer-101010)]()
-[![Domain](https://img.shields.io/badge/Domain-Football_Analytics_%26_Match_Analysis-green)]()
-
-Analisi tattica quantitativa e spaziale condotta sugli open data di evento ufficiali **StatsBomb** della finale di World Cup 2022 (**Argentina vs Francia**), integrando modelli di pericolosità offensiva ($xG$), reti di trasmissione (Passing Networks) e mappe di densità difensiva (KDE Heatmaps).
+Analisi quantitativa, tattica e probabilistica sui dati evento ufficiali **StatsBomb**, articolata in moduli verticali che combinano spatial analytics avanzata e simulazioni stocastiche per la match analysis.
 
 ---
 
-## 📌 Obiettivi della Match Analysis
+## 📂 Struttura del Repository
 
-* **Expected Goals ($xG$) Shot Quality:** Mappatura bidimensionale e quantificazione della qualità delle conclusioni tentate nel corso dei 120 minuti.
+* **[Modulo 1: Spatial Event Analytics & Tactical Report (World Cup 2022 Final)](#-modulo-1-world-cup-2022-final--tactical-match-report--spatial-event-analytics)**
+* **[Modulo 2: Shot-by-Shot Monte Carlo Match Simulator (Euro 2024 Final)](#-modulo-2-uefa-euro-2024-final--shot-by-shot-monte-carlo-simulation)**
+
+---
+
+## 🏆 Modulo 1: World Cup 2022 Final — Tactical Match Report & Spatial Event Analytics
+
+> Analisi tattica quantitativa e spaziale condotta sugli open data di evento ufficiali **StatsBomb** della finale dei Mondiali 2022 (**Argentina vs Francia**), integrando modelli di pericolosità offensiva (xG/xG per tiro), reti di trasmissione (Passing Networks) e mappe di densità difensiva (KDE Heatmaps).
+
+### 🎯 Obiettivi della Match Analysis
+* **Expected Goals (SxG) & Shot Quality:** Mappatura bidimensionale e quantificazione della qualità delle conclusioni tentate nel corso dei 120 minuti.
 * **Passing Network & Structural Balance:** Baricentro medio dei titolari dell'Argentina e densità dei canali di trasmissione palla prima dei cambi tattici.
 * **Defensive Intensity & Spatial Control:** Distribuzione spaziale delle azioni difensive (pressing, contrasti, intercetti, blocchi) per evidenziare le altezze di riconquista palla.
 
----
+### 📊 Visualizzazioni e Analisi Tattica
 
-## 🛠️ Stack Tecnologico & Librerie
-
-* **Linguaggio:** Python
-* **Ambiente:** Google Colab / JupyterLab
-* **Librerie Principali:**
-  * `statsbombpy`: estrazione e parsing degli event data ufficiali.
-  * `mplsoccer`: rendering vettoriale dei campi da calcio, matrici di passaggio e mappe KDE.
-  * `pandas` & `numpy`: vettorizzazione delle coordinate $(x, y)$, filtri ed elaborazioni aggregate.
-  * `matplotlib`: layout grafico e visual design in alta risoluzione.
-
----
-
-## 📊 Visualizzazioni & Analisi Tattica
-
-### 1. Shot Map & Expected Goals ($xG$)
-La dimensione dei cerchi è proporzionale all'xG generato dal singolo tiro; le conclusioni convertite in gol sono evidenziate da marcatori a stella.
-
-![Shot Map xG](shot_map_xg.png)
-
+#### 1. Shot Map & Expected Goals (SxG)
+![Shot Map](shot_map_xg.png)
 * **Argentina (2.76 xG):** Volume superiore di conclusioni nel cuore dell'area di rigore e costanza di minaccia costruita con attacchi manovrati centrali.
 * **Francia (2.27 xG):** Pericolosità concentrata nella ripresa e nei supplementari, trainata da transizioni dirette a campo aperto ed episodi ad alta conversione.
 
----
-
-### 2. Argentina Starting XI Passing Network (0' - 63')
-Rete dei passaggi tracciata sull'undici titolare prima della prima sostituzione (uscita di Di María al 64'). La dimensione dei nodi riflette il volume di passaggi eseguiti; lo spessore delle linee indica il volume degli scambi tra compagni (minimo 4 passaggi).
-
-![Passing Network Argentina](argentina_pass_network.png)
-
-* **Costruzione Bassa:** Connessione primaria Romero–Otamendi con Martínez a fungere da perno basso.
-* **Nucleo Mediano:** Triangolo Fernández–De Paul–Mac Allister a dettare i ritmi della manovra e schermare le seconde palle.
+#### 2. Argentina Starting XI Passing Network (0' - 63')
+![Passing Network](argentina_pass_network.png)
+* **Costruzione Bassa:** Connessione primaria Romero-Otamendi con Martinez a fungere da perno basso.
+* **Nucleo Mediano:** Triangolo Fernández-De Paul-Mac Allister a dettare i ritmi della manovra e schermare le seconde palle.
 * **Sviluppo Offensivo:** Asimmetria con Di María isolato in ampiezza pura a sinistra e Messi libero di ricevere e rifinire sul mezzo-spazio destro.
 
----
-
-### 3. Defensive Activity & Pressing Density Map
-Stima di densità bivariata (Kernel Density Estimation) applicata sull'intero volume delle azioni difensive (pressioni, contrasti, intercetti, falli commessi, spazzate e blocchi).
-
-![Defensive Activity Map](defensive_activity_map.png)
-
+#### 3. Defensive Activity & Pressing Density Map
+![Defensive Map](defensive_activity_map.png)
 * **Argentina (311 azioni):** Baricentro medio-alto, con densità di pressione estesa alla trequarti rivale per bloccare la prima costruzione avversaria.
 * **Francia (319 azioni):** Baricentro basso, concentrazione difensiva a protezione degli ultimi 30 metri e linee di recupero posizionate per la transizione immediata.
 
 ---
 
-## 💡 Valore Metodologico
+## 🎲 Modulo 2: UEFA Euro 2024 Final — Shot-by-Shot Monte Carlo Simulation
 
-L'integrazione di coordinate spaziali ed event metrics consente a match analyst e staff tecnico di superare i limiti della statistica descrittiva pura (es. possesso palla o tiri totali), oggettivando la reale occupazione degli spazi, l'efficacia del pressing e la pericolosità qualitativa delle scelte tattiche.
+> Modellazione stocastica e simulazione probabilistica della finale di **UEFA Euro 2024 (Spagna vs Inghilterra)** tramite **100.000 iterazioni Monte Carlo vettorizzate**, basate sugli micro-dati dei singoli tiri registrati da StatsBomb.
+
+### 📌 Business & Analytical Insights
+Nel calcio il punteggio effettivo (2-1) è spesso influenzato dall'alta varianza stocastica connaturata a uno sport a basso punteggio. Questa simulazione disaccoppia la casualità dalla prestazione strutturale:
+
+* **Dominio Territoriale e Qualità:** La Spagna ha registrato **1.79 xG** (16 tiri) contro **0.73 xG** (9 tiri) dell'Inghilterra.
+* **Distribuzione degli Esiti nei 90 minuti:**
+  * **P(Vittoria Spagna):** 64.6%
+  * **P(Pareggio):** 22.1%
+  * **P(Vittoria Inghilterra):** 13.3%
+* **Expected Points ($xPTS$):** Spagna **2.16** | Inghilterra **0.62**
+* **Verifica del Risultato Reale (2-1):** Verificatosi con una densità dell'**11.2%**, risultando uno degli esiti a maggior frequenza relativa (dopo 1-0 al 14.2%, 2-0 al 13.9% e 1-1 all'11.4%).
+
+### 📊 Matrice di Probabilità dei Risultati Esatti
+![Monte Carlo Heatmap](monte_carlo_heatmap_euro24.png)
+
+### 🔬 Metodologia Statistica
+Ogni conclusione $i$ con valore $xG_i \in (0, 1)$ viene modellata come una variabile casuale bernoulliana indipendente:
+
+$$P(\text{Gol}_i) = xG_i$$
+
+Per ogni iterazione $j \in [1, 100000]$, viene campionato un numero casuale uniforme $U \sim \mathcal{U}(0, 1)$. L'evento gol è assegnato se:
+
+$$\mathbb{I}_{\{U < xG_i\}} = 1$$
+
+I punti attesi ($xPTS$) derivano direttamente dalle probabilità empiriche:
+
+$$xPTS = 3 \cdot P(\text{Win}) + 1 \cdot P(\text{Draw})$$
+
+---
+
+## 🛠️ Stack Tecnologico & Librerie
+* **Linguaggio:** Python
+* **Dati:** StatsBomb Open Data (`statsbombpy`)
+* **Calcolo Vettoriale & Dati:** `numpy`, `pandas`
+* **Visualizzazione Grafica & Pitch Maps:** `matplotlib`, `seaborn`, `mplsoccer`
