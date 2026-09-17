@@ -57,7 +57,7 @@ Nel calcio il punteggio effettivo (2-1) è spesso influenzato dall'alta varianza
 * **Verifica del Risultato Reale (2-1):** Verificatosi con una densità dell'**11.2%**, risultando uno degli esiti a maggior frequenza relativa (dopo 1-0 al 14.2%, 2-0 al 13.9% e 1-1 all'11.4%).
 
 ### 📊 Matrice di Probabilità dei Risultati Esatti
-![Monte Carlo Heatmap](Unknown.png)
+![Monte Carlo Heatmap](./monte_carlo_heatmap.png)
 
 ### 🔬 Metodologia Statistica
 Ogni conclusione *i* con valore xG compreso tra 0 e 1 viene modellata come una variabile casuale bernoulliana indipendente:
